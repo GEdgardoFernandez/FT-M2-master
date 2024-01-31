@@ -48,12 +48,11 @@ ToDo.prototype.completeToDo = function () {
 
 function buildToDo(todo, index) {
   // Tu código acá:
-  if (typeof todo !== 'object') {
-    return new Error('El argumento debe ser un objeto');
+  //* errores para que no troleen el programa
+  if (!(todo instanceof ToDo)) {
+    throw new Error('El primer argumento debe ser un objeto de la clase ToDo');
   }
-  if (typeof index !== 'number') {
-    return new Error('El argumento debe ser un número');
-  }
+  
   let toDoShell = document.createElement('div');
   toDoShell.className = 'toDoShell';
   let toDoText = document.createElement('span');
@@ -146,10 +145,10 @@ function completeToDo(event) {
   // DESCOMENTAR LA SIGUIENTE LINEA
   const index = event.target.id;
   // Tu código acá:
-  completeToDo(index);
+  toDoItems[index].completeToDo();
   displayToDos();
-  buildToDo.addEventListener('click', toDoText);
 
+  buildToDo(toDoItems[index], index).addEventListener('click', completeToDo);
 }
 
 // Una vez que llegaste a este punto verificá que todos los tests pasen
