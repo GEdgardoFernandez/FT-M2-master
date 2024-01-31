@@ -26,7 +26,9 @@ function ToDo(description) {
 // Debe setear el atributo 'complete' del ToDo en true
 
 // Tu código acá:
-
+ToDo.prototype.completeToDo = function () {
+  this.complete = true; 
+}
 // Agregar dos parámetros a la función 'buildToDo':
 //    1) Un objeto de la clase ToDo
 //    2) Index numérico
