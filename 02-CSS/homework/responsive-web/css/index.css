@@ -11,10 +11,22 @@
   width: 30%;
 }
 .btn:hover {
+  font-weight: bolder;
   background: #fff;
   color: #22283A;
   cursor: pointer;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+}
+.link {
+  text-decoration: none;
+  color: #22283A;
+}
+.link:hover {
+  font-weight: bolder;
+  border: 1px solid #817e7e;
+  color: #fff;
+  background-color: #22283A;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
 }
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -209,6 +221,14 @@ nav h1 {
   margin-bottom: 10px;
   font-size: 3.2rem;
 }
+@media (max-width: 500px) {
+  nav {
+    width: 100%;
+  }
+  nav ul li a {
+    font-size: 10px;
+  }
+}
 footer {
   color: #22283B;
   background: #f4f4f4;
@@ -273,4 +293,7 @@ footer {
 header img {
   border-radius: 35px;
   padding: 15px;
+}
+footer {
+  width: 100%;
 }
