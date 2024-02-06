@@ -71,6 +71,45 @@ header img{
   border-radius: 35px;
   padding: 15px;
 }
-footer {
-  width: 100%;
+@media @phone {
+  .home {
+    .intro {
+      img {
+        width: 100%;
+        padding: 0px 10px 0px 10px;
+      }
+    }
+
+    .music-images {
+      .tecnologia,
+      .ondas {
+        display: none;
+      }
+
+      .auricular {
+        width: 100%;
+      }
+    }
+
+    .actual {
+      flex-direction: column-reverse;
+      padding: 10px;
+
+      .actual-text, .actual-img {
+        width: 100%;
+
+        .btn{
+          width: 100%;
+          text-align: center;
+
+          &:hover{
+            width: 100%;
+            text-align: center;
+            background-color: @btn-bg-color;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
 }
