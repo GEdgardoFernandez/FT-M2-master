@@ -1,1 +1,20 @@
 // Mixins acá
+.btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid @btn-bg-color;
+    background: @btn-bg-color;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.4rem;
+    text-decoration: none;
+    display: block;
+    width: 30%;
+}
+
+.btn:hover {
+    background: #fff;
+    color: @btn-bg-color;
+    cursor: pointer;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+}
