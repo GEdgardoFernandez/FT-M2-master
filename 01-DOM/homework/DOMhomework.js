@@ -58,9 +58,10 @@ function buildToDo(todo, index) {
   let toDoText = document.createElement('span');
   toDoText.innerHTML = todo.description;
   toDoText.id = index;
-  if (todo.complete === true) {
+  if (todo.complete == true) {
     toDoText.className = 'completeText';
   }
+  toDoText.addEventListener('click', completeToDo);
   toDoShell.appendChild(toDoText);
   return toDoShell;
 }
@@ -114,6 +115,9 @@ function displayToDos() {
 function addToDo() {
   // Tu código acá:
   let toDoInput = document.getElementById('toDoInput');
+  if (typeof toDoInput.value === "number" ) {
+    throw new Error('El valor del input no es un string');
+  }
   let newToDo = new ToDo(toDoInput.value);
   toDoItems.push(newToDo);
   toDoInput.value = "";
