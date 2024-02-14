@@ -10,20 +10,26 @@
 <body>
   <div class="container">
   <h2>Ver Amigos</h2>
-  <button id='boton'>Ver Amigos</button>
+  <button class="btn-pagina" id='boton'>Ver Amigos</button>
   <img id="image" src='https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif' />
   <ul id='lista'>
   </ul>
   </div>
+  <dialog class="centrar" id="modalAmigos">
+    <span id='amigo'></span>
+    <span id='success'></span>
+    <button id='close'>Cerrar</button>
+  </dialog>
   <hr>
-  <input id='input'></input>
-  <button id='search'>Buscar</button>
-  <span id='amigo'></span>
-
+  <input id='input' required></input>
+  <button class="btn-pagina" id='search'>Buscar</button>
+  <dialog class="centrar" id="modalDelete">
+    <span id='success'></span>
+    <button id='cerrar'>Cerrar</button>
+  </dialog>
   <hr>
   <input id='inputDelete'></input>
-  <button id='delete'>Delete</button>
-  <span id='success'></span>
+  <button class="btn-pagina" id='delete'>Delete</button>
   <script src="index.js"></script>
 </body>
 </html>
