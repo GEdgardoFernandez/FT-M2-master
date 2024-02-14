@@ -53,8 +53,12 @@ input:focus {
     color: white;
     cursor: pointer;
 }
+ul li {
+    font-size: 3vh;
+    font-weight: bold;
+}
 
-/*Ventana modal*/
+/*Ventanas modal*/
 .contenedor {
     justify-content: center;
     align-items: center;
@@ -87,6 +91,36 @@ background-color: rgba(0, 0, 0, 0.9);
     cursor: pointer;
 }
 #close:active {
+    background-color: red;
+    color: black;
+}
+
+#modalDelete {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#modalDelete::backdrop {
+background-color: rgba(0, 0, 0, 0.9);
+}
+#cerrar {
+    margin: 7px;
+    padding: 7px;
+    border-radius: 10px;
+    color: black;
+    background-color: white;
+}
+#cerrar:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+#cerrar:active {
     background-color: red;
     color: black;
 }

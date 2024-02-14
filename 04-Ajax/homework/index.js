@@ -43,32 +43,36 @@ buscar.addEventListener('click', () => {
 cerrar.addEventListener('click', () => {
     modal.close();
 })
-
-//* eliminar Amigo
+//*Eliminar Amigos
 const eliminar = document.querySelector('#delete');
-const eliminarInput = document.querySelector('#deleteInput');
+const eliminarInput = document.querySelector('#inputDelete');
 const eliminadoCorrecto = document.querySelector('#success');
 const modalDelete = document.querySelector('#modalDelete');
 const cerrarDelete = document.querySelector('#cerrar');
 
 eliminar.addEventListener('click', () => {
-    if (typeof eliminarInput.value != "number" ) {
-        modal.showModal();
-        eliminadoCorrecto.innerText = 'Debe ingresar un número';
-    }
-    if (eliminarInput.value == 0 || eliminarInput.value > 6) {
+    const amigoId = parseInt(eliminarInput.value);
+
+    if (isNaN(amigoId)) {
         modalDelete.showModal();
-        eliminadoCorrecto.innerText = 'No existe ese ID';
+        eliminadoCorrecto.innerText = 'Debe ingresar un número';
     } else {
+        // Realizar la solicitud DELETE con AJAX
         $.ajax({
-            url: urlAmigos + '/' + (eliminarInput.value - 1),
+            url: `http://localhost:5000/amigos/${amigoId}`,
             type: 'DELETE',
-            success: function (data) {
-                eliminadoCorrecto.innerText = 'Amigo eliminado';
+            success: function () {
+                modalDelete.showModal();
+                eliminadoCorrecto.innerText = "Se ha eliminado el amigo correctamente";           },
+            error: function (error) {
+                console.error(error);
+                modalDelete.showModal();
+                eliminadoCorrecto.innerText = 'Error al eliminar amigo';
             }
-        })
+        });
     }
-})
-cerrar.addEventListener('click', () => {
+});
+
+cerrarDelete.addEventListener('click', () => {
     modalDelete.close();
-})
+});
