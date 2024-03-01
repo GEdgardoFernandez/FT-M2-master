@@ -1,8 +1,8 @@
 .divContent {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100vw;
 }
 
@@ -11,6 +11,10 @@
   text-align: center;
     margin-left: 2em;
     border-radius: 0.3em;
+    border: 1px solid #f6f4e6;
+    background-color: #82bf33;
+    color: #0b1601;
+    padding: 0.5em;
 }
 
 .divContent button:hover{

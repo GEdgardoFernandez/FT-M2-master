@@ -2,10 +2,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 2em;
+    margin-top: 1em;
 }
 
 .containerAnimals {
+  background-color: darkolivegreen;
   display: flex;
   margin: 1em;
   border: #f6f4e6 solid;

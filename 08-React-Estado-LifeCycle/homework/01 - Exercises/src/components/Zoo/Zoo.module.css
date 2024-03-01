@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   color: #f6f4e6;
 }
 
@@ -16,7 +16,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   background-color: #4f772d;
-  padding-left: 1em;
+
 }
 
 .title {
