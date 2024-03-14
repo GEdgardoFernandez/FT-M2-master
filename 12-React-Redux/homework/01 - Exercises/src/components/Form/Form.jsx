@@ -1,50 +1,45 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import Caja from '../../assets/caja.png';
-import './form.css';
+import { addProduct } from '..//..//redux/actions/actions.js';
 
-class Form extends React.Component{
-   constructor(props){
-      super(props)
+const Form = ({ addProduct }) => {
+  const [product, setProduct] = useState({ name: '', price: '' });
 
-      this.state = {
-         name: "",
-         price: "",
-         id: ""
-      }
-   }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (product.name && product.price) {
+      addProduct({ ...product, id: Date.now() });
+      setProduct({ name: '', price: '' });
+    }
+  };
 
-   handleInputChange = (event) => {
-      this.setState({ ...this.state, [event.target.name]: event.target.value });
-   }
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setProduct({ ...product, [name]: value });
+  };
 
-   render(){
-      return (
-         <form className='formBg'>
-            <div className='inputBox'>
-               <label>Nombre: </label>
-               <input
-                  name='name'
-                  onChange={this.handleInputChange}
-                  value={this.state.name}
-               />
-            </div>
-            <div className='inputBox'>
-               <label>Precio:</label>
-               <input
-                  type='number'
-                  name='price'
-                  onChange={this.handleInputChange}
-                  value={this.state.price}
-               />
-            </div>
-            <button className='formBtn'>¡ADD!</button>
-            <img src={Caja} alt='' className='logo' />
-         </form>
-      )
-   }
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" name="name" placeholder="Product Name" value={product.name} onChange={handleChange} />
+      <input type="number" name="price" placeholder="Product Price" value={product.price} onChange={handleChange} />
+      <button type="submit">Add Product</button>
+    </form>
+  );
+};
+
+
+
+export const ConnectedForm = connect(null, mapDispatchToProps)(Form);
+export function mapStateToProps(state) {
+  return {
+    productList: state.list
+  };
 }
 
-export function mapDispatchToProps() {}
+export function mapDispatchToProps(dispatch) {
+  return {
+    addProduct: (product) => dispatch(addProduct(product))
+  };
+}
 
-export default connect(null, mapDispatchToProps)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
